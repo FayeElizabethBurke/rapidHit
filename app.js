@@ -1,10 +1,17 @@
 import { Selector } from 'testcafe';
-let pageTurn = 1;
-//elements
-//
-let randomizeBotOne = Math.ceil(Math.random() * 6),
-    topLink = Selector('.nav ul').child(randomizeBotOne).child();
-//hits the home page and clicks ip energizer linkL
+
+let terms = ['electric fence energiser', 'electric fence supplies brisbane', 'jva electric fence', 'jva fence australia', 'electric fencing au', 'ip energiser'],
+    item = terms[Math.floor(Math.random() * terms.length)],
+    pageTurn = 1,
+    randomizeBotOne = Math.ceil(Math.random() * 6),
+    topLink = Selector('.nav ul').child(randomizeBotOne).child(),
+    searchBar = Selector('input').withAttribute('title', 'Search'),
+    jvaLink = Selector('a').withAttribute('href', 'https://www.jva-fence.com.au/'),
+    nextPage = Selector('#pnnext'),
+    shop = Selector('.nav ul').child(5).child(),
+    shopNow = Selector('button').withText('Shop Now'),
+    randomizeBotThree = Math.ceil(Math.random() * 9),
+    dropDownItem = Selector('.sidebar-module__list').child(randomizeBotThree);
 
 fixture(`Bot 1`).page('http://www.jva-fence.com.au');
 test('Direct access though url', async t => {
@@ -16,16 +23,12 @@ test('Direct access though url', async t => {
 
 
 //randomizeBotOne my search term
-let terms = ['electric fence energiser', 'electric fence supplies brisbane', 'jva electric fence', 'jva fence australia', 'electric fencing au', 'ip energiser'],
-    item = terms[Math.floor(Math.random() * terms.length)];
+
 
 
 fixture(`Bot 2`).page('http://www.google.com.au');
 test('Indirect access through google search terms', async t => {
-    let searchBar = Selector('input').withAttribute('title', 'Search'),
-        jvaLink = Selector('a').withAttribute('href', 'https://www.jva-fence.com.au/'),
-        nextPage = Selector('#pnnext'),
-        shop = Selector('.nav ul').child(5).child();
+
 
     await t
         .resizeWindow(1900, 900)
@@ -58,9 +61,7 @@ test('Indirect access through google search terms', async t => {
 fixture(`Bot 3`).page('https://www.facebook.com/JVATechnologies');
 test('Indirect access through external links (facebook)', async t => {
     //elements
-    let shopNow = Selector('button').withText('Shop Now'),
-        randomizeBotThree = Math.ceil(Math.random() * 9),
-        dropDownItem = Selector('.sidebar-module__list').child(randomizeBotThree);
+
     await t
         .resizeWindow(1900, 900)
         .wait(1500)
