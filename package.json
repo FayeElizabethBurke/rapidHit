@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/FayeElizabethBurke/rapidHit/issues"
   },
-  "homepage": "https://github.com/FayeElizabethBurke/rapidHit#readme"
+  "homepage": "https://github.com/FayeElizabethBurke/rapidHit#readme",
+  "dependencies": {
+    "cron": "^1.7.2"
+  }
 }

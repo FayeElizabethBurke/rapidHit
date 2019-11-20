@@ -1,0 +1,14 @@
+{
+    "cronTime": "0 * * * * *",
+    "testcafe": {
+        "controlPanelPort": 1337,
+        "servicePort": 1338,
+        "testsDir": "H:\\Staff\\Faye\\rapidHit\\app.js",
+        "browsers": {
+            "Google Chrome": {
+                "path": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+                "cmd": "-new-window"
+            }
+        }
+    }
+}
