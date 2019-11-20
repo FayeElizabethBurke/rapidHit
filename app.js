@@ -13,6 +13,7 @@ let terms = ['electric fence energiser', 'electric fence supplies brisbane', 'jv
     randomizeBotThree = Math.ceil(Math.random() * 9),
     dropDownItem = Selector('.sidebar-module__list').child(randomizeBotThree);
 
+//enter website, click a link and wait
 fixture(`Bot 1`).page('http://www.jva-fence.com.au');
 test('Direct access though url', async t => {
     await t
@@ -21,15 +22,10 @@ test('Direct access though url', async t => {
         .wait(30000)
 });
 
-
-//randomizeBotOne my search term
-
-
-
+//google a random term, listed above. Look for website, if not found click next page until found. Prints page rank to console.
+//once on website, navigated to the store
 fixture(`Bot 2`).page('http://www.google.com.au');
 test('Indirect access through google search terms', async t => {
-
-
     await t
         .resizeWindow(1900, 900)
         .typeText(searchBar, item)
@@ -58,6 +54,7 @@ test('Indirect access through google search terms', async t => {
     console.log('Search term used: ' + item + ', Google rank: Page ' + pageTurn)
 });
 
+//Opens on facebook page, follows link to jva store, chooses a random product catagory, clicks the first result and waits before closing.
 fixture(`Bot 3`).page('https://www.facebook.com/JVATechnologies');
 test('Indirect access through external links (facebook)', async t => {
     //elements
