@@ -34,7 +34,7 @@ let terms = ['electric fence energiser', 'electric fence supplies brisbane', 'el
 fixture(`Bot 2`).page('http://www.google.com.au');
 test('Indirect access through google search terms', async t => {
     await t
-        .resizeWindow(1900, 900)
+        .maximizeWindow()
         .typeText(searchBar, item)
         .pressKey('enter')
         .wait(10000)
@@ -95,7 +95,7 @@ test('Indirect access through external links (facebook)', async t => {
     //elements
 
     await t
-        .resizeWindow(1900, 900)
+        .maximizeWindow()
         .wait(1500)
         .click(shopNow)
         .wait(Math.ceil(sessionTime / 10))
