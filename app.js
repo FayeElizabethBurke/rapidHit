@@ -1,6 +1,6 @@
 import { Selector } from 'testcafe';
 
-let terms = ['electric fence energiser', 'electric fence supplies brisbane', 'electric fencing au', 'electric fence'],
+let terms = ['electric fence energiser', 'electric fence supplies brisbane', 'electric fencing au'],
     item = terms[Math.floor(Math.random() * terms.length)],
     pageTurn = 1,
     randomizeBotOne = Math.floor(Math.random() * 5),
@@ -45,10 +45,10 @@ test('Indirect access through google search terms', async t => {
             .wait(5000)
             .click(topLink)
             .wait(sessionTime)
-            .click(Selector('li'))
+            .click(topLink)
             .wait(3000)
             .click(Selector('a').withAttribute('href', 'shop.html'))
-            .wait(4000)
+            .wait(6000)
             .click(dropDownItem)
             .wait(3000)
             .click(Selector('.grid-link'))
@@ -58,6 +58,7 @@ test('Indirect access through google search terms', async t => {
             .click(salesNav)
             .wait(3000)
             .click(topLink)
+            .click(Selector('*'))
             .wait(Math.ceil(sessionTime / 3))
     } else {
         do {
@@ -68,10 +69,10 @@ test('Indirect access through google search terms', async t => {
                 .wait(5000)
                 .click(topLink)
                 .wait(sessionTime)
-                .click(Selector('li'))
+                .click(topLink)
                 .wait(3000)
                 .click(Selector('a').withAttribute('href', 'shop.html'))
-                .wait(4000)
+                .wait(6000)
                 .click(dropDownItem)
                 .wait(3000)
                 .click(Selector('.grid-link'))
@@ -81,6 +82,7 @@ test('Indirect access through google search terms', async t => {
                 .click(salesNav)
                 .wait(3000)
                 .click(topLink)
+                .click(Selector('*'))
                 .wait(Math.ceil(sessionTime / 3))
             pageTurn++;
         }
@@ -96,7 +98,7 @@ test('Indirect access through external links (facebook)', async t => {
 
     await t
         .maximizeWindow()
-        .wait(1500)
+        .wait(10000)
         .click(shopNow)
         .wait(Math.ceil(sessionTime / 10))
         .click(dropDownItem)
